@@ -23,7 +23,7 @@ vim.diagnostic.config {
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
+-- Exit terminal mode in the kkbuiltin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
 --
@@ -63,5 +63,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function() vim.hl.on_yank() end,
 })
+
+-- Visual mode: <leader>y to yank selection to system clipboard
+vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yank visual selection to system clipboard' })
+
+-- Normal mode: <leader>y to yank motion to system clipboard
+vim.keymap.set('n', '<leader>y', '"+y', { desc = 'Yank motion to system clipboard' })
+
+-- Normal mode: <leader>yy to yank line to system clipboard
+vim.keymap.set('n', '<leader>yy', '"+yy', { desc = 'Yank line to system clipboard' })
+
+-- Open terminal
+vim.keymap.set('n', '<leader>t', ':belowright 12sp +term<CR>A', { silent = true, desc = 'Open [T]erminal below current window' })
 
 -- vim: ts=2 sts=2 sw=2 et

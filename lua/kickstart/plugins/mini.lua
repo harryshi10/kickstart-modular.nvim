@@ -39,6 +39,11 @@ return {
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function() return '%2l:%-2v' end
 
+      -- Remove buffers without closing windows
+      require('mini.bufremove').setup()
+      vim.keymap.set('n', '<leader>bd', function() MiniBufremove.delete() end, { desc = '[B]uffer [D]elete' })
+      vim.keymap.set('n', '<leader>bD', function() MiniBufremove.delete(0, true) end, { desc = '[B]uffer force-[D]elete' })
+
       -- ... and there is more!
       --  Check out: https://github.com/nvim-mini/mini.nvim
     end,

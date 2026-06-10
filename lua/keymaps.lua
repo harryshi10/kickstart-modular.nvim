@@ -65,15 +65,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Visual mode: <leader>y to yank selection to system clipboard
-vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yank visual selection to system clipboard' })
+vim.keymap.set('v', '<leader>y', '"+y', { desc = '[Y]ank visual selection to system clipboard' })
 
 -- Normal mode: <leader>y to yank motion to system clipboard
-vim.keymap.set('n', '<leader>y', '"+y', { desc = 'Yank motion to system clipboard' })
+vim.keymap.set('n', '<leader>y', '"+y', { desc = '[Y]ank motion to system clipboard' })
 
 -- Normal mode: <leader>yy to yank line to system clipboard
-vim.keymap.set('n', '<leader>yy', '"+yy', { desc = 'Yank line to system clipboard' })
+vim.keymap.set('n', '<leader>yy', '"+yy', { desc = '[Y]ank line to system clipboard' })
 
 -- Open terminal
-vim.keymap.set('n', '<leader>t', ':belowright 12sp +term<CR>A', { silent = true, desc = 'Open [T]erminal below current window' })
+vim.keymap.set('n', '<leader>ot', ':belowright 12sp +term<CR>A', { silent = true, desc = '[O]pen [T]erminal below current window' })
 
 -- vim: ts=2 sts=2 sw=2 et

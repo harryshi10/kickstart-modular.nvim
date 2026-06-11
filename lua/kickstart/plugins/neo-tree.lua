@@ -12,6 +12,17 @@ return {
     'MunifTanjim/nui.nvim',
   },
   lazy = false,
+  init = function()
+    vim.api.nvim_create_autocmd('VimEnter', {
+      callback = function()
+        vim.schedule(function()
+          if vim.bo.filetype == 'neo-tree' then
+            vim.cmd 'wincmd p'
+          end
+        end)
+      end,
+    })
+  end,
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },

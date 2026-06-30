@@ -72,5 +72,13 @@ vim.o.confirm = true
 vim.opt.title = true
 vim.opt.titlestring = "%{fnamemodify(getcwd(), ':t')}"
 
+vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
+  pattern = "*",
+  callback = function()
+    if vim.bo.modified and vim.bo.buftype == "" and vim.fn.expand "%:p" ~= "" then
+      vim.cmd "silent! write"
+    end
+  end,
+})
 
 -- vim: ts=2 sts=2 sw=2 et

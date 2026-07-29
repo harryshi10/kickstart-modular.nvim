@@ -5,4 +5,22 @@
 
 ---@module 'lazy'
 ---@type LazySpec
-return {}
+return {
+  { -- Auto-generate docstring annotations from the function/class signature under the cursor
+    'danymat/neogen',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    opts = {
+      snippet_engine = 'luasnip',
+      languages = {
+        python = {
+          template = {
+            annotation_convention = 'numpydoc',
+          },
+        },
+      },
+    },
+    keys = {
+      { '<leader>nf', function() require('neogen').generate() end, desc = '[N]eogen generate docstring' },
+    },
+  },
+}

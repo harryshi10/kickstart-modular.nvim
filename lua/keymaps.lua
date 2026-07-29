@@ -73,6 +73,11 @@ vim.keymap.set('n', '<leader>y', '"+y', { desc = '[Y]ank motion to system clipbo
 -- Normal mode: <leader>yy to yank line to system clipboard
 vim.keymap.set('n', '<leader>yy', '"+yy', { desc = '[Y]ank line to system clipboard' })
 
+-- Normal mode: <leader>yp to yank current file's absolute path to system clipboard
+vim.keymap.set('n', '<leader>yp', function()
+  vim.fn.setreg('+', vim.fn.expand '%:p')
+end, { desc = '[Y]ank file [P]ath to system clipboard' })
+
 -- Open terminal
 vim.keymap.set('n', '<leader>ot', ':belowright 12sp +term<CR>A', { silent = true, desc = '[O]pen [T]erminal below current window' })
 

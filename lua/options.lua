@@ -81,4 +81,13 @@ vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
   end,
 })
 
+vim.o.expandtab = true
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+
+vim.o.swapfile = false
+
+vim.o.virtualedit = 'block'
+
 -- vim: ts=2 sts=2 sw=2 et
